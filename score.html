@@ -413,7 +413,8 @@ Free usage and modification for non-commercial use.
     document.onkeypress = function(e) {      
       if(e.key.length !== 1)
           return;
-        
+      if(e.target.nodeName === "INPUT" || e.target.nodeName === "BUTTON")
+          return;
       switch(e.key) {
         case ' ':
             hajimeOrMate();
@@ -565,16 +566,21 @@ body {height: 100%; margin: 0px; padding: 0px; background-color: #000000;}
 #white .name {position: absolute; top: 5%; left: 2%; color: #000000;}
 #blue .name {position: absolute; bottom: 5%; left: 2%; color: #ffffff;}
 
+#white .name * {color: #000000;}
+#blue .name * {color: #ffffff;}
+
 #white .points {position: absolute; bottom: 3%; left: 50%; color: #000000;}
 #blue .points {position: absolute; top: 3%; left: 50%; color: #ffffff;}
 
 .name {font: bold 60px sans-serif; white-space: nowrap; overflow: hidden;}
+.name input {background: none; border: none; font: bold 60px sans-serif;}
 .points {white-space: nowrap;}
 .point {display: inline-block; font: bold 220px sans-serif; width: 200px; margin: 0 30px; text-align: center; vertical-align: middle; cursor: pointer;}
 .shido {display: inline-block; width: 100px; height: 130px; margin: 0 150px; vertical-align: middle; cursor: pointer;}
 
 #group {position: absolute; top: 20%; left: 3%; font: bold 60px sans-serif; white-space: nowrap; overflow: hidden; color: #ffffff;}
 #round {position: absolute; bottom: 20%; left: 3%; font: bold 60px sans-serif; white-space: nowrap; overflow: hidden; color: #ffffff;}
+#group *, #round * {background: none; border: none; font: bold 60px sans-serif; color: #ffffff;}
 #fighttime {position: absolute; top: 48%; right: 25%; height: 1em; margin-top: -0.5em; font: bold 220px sans-serif; white-space: nowrap; color: #cc0000; cursor: pointer;}
 #osaetime {position: absolute; top: 50%; right: 7%; height: 1em; margin-top: -0.5em; font: bold 150px sans-serif; text-align: right; white-space: nowrap; color: #8888ff; cursor: pointer;}
 #goldenscore {display: none; position: absolute; top: 50%; right: 19%; height: 2em; margin-top: -0.8em; font: bold 100px sans-serif; text-align: center; line-height: 90%; color: #f0c115;}
@@ -594,7 +600,7 @@ div {-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:
 
 </style>
 <div id="white">
-    <div id="whitename" class="name"> </div>
+    <div id="whitename" class="name"><input type="text" value="A"/></div>
     <div class="points">
         <div id="white_ippon" class="point" title="Ippon">&nbsp;</div>
         <div id="white_wazari" class="point" title="Wazari">0</div>
@@ -603,7 +609,7 @@ div {-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:
     
 </div>
 <div id="blue">
-    <div id="bluename" class="name"> </div>
+    <div id="bluename" class="name"><input type="text" value="B"/></div>
     <div class="points">
         <div id="blue_ippon" class="point" title="Ippon">&nbsp;</div>
         <div id="blue_wazari" class="point" title="Wazari">0</div>
@@ -611,8 +617,8 @@ div {-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:
     </div>
 </div>
 <div id="time">
-    <div id="group"> </div>
-    <div id="round"> </div>
+    <div id="group"><input type="text" value="&nbsp;"/></div>
+    <div id="round"><input type="text" value="&nbsp;"/></div>
     <div id="fighttime" title="Fight Time">0:00</div>
     <div id="osaetime" title="Oseakomi Time">00</div>
     <div id="goldenscore">G<br>S</div>
