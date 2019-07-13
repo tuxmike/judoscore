@@ -55,6 +55,9 @@ Free usage and modification for non-commercial use.
      * Start fight counter
      */
     function hajime() {
+        if(fightActive)
+            return;
+        
         if(fightTimeSec == 0 && !isEndlessGoldenScore())
             return;
         
@@ -70,6 +73,8 @@ Free usage and modification for non-commercial use.
     function mate() {
         if(updateTimer)
             clearInterval(updateTimer);
+        if(fightActive == false)
+            return;
         fightActive = false;
         
         drawTimes();
