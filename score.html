@@ -586,7 +586,7 @@ body {height: 100%; margin: 0px; padding: 0px; background-color: #000000;}
 #goldenscore {display: none; position: absolute; top: 50%; right: 19%; height: 2em; margin-top: -0.8em; font: bold 100px sans-serif; text-align: center; line-height: 90%; color: #f0c115;}
 
 #menubtn {position: absolute; bottom: 8px; left: 8px; font: normal 25px sans-serif; color: #ffffff; cursor: pointer;}
-#menu {display: none; position: absolute; top: 5%; left: 5%; height: 85%; width: 85%; padding: 20px; border-radius: 15px; background-color: #aaaaaa; border: 2px solid #777777; font: normal 20px sans-serif; overflow: auto;}
+#menu {display: none; position: absolute; top: 5%; left: 5%; height: 85%; width: 85%; padding: 20px; border-radius: 15px; background-color: #cccccc; border: 2px solid #777777; font: normal 20px sans-serif; overflow: auto;}
 #menu h1 {font: bold 25px sans-serif;}
 #menubtnclose {position: absolute; top: 8px; right: 12px; font: normal 25px sans-serif; color: #000000; cursor: pointer;}
 #menubtnclose:hover, #menubtn:hover {color: #dd0000;}
@@ -600,7 +600,7 @@ div {-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:
 
 </style>
 <div id="white">
-    <div id="whitename" class="name"><input type="text" value="A"/></div>
+    <div id="whitename" class="name"><input type="text" value="White" title="Fightername"/></div>
     <div class="points">
         <div id="white_ippon" class="point" title="Ippon">&nbsp;</div>
         <div id="white_wazari" class="point" title="Wazari">0</div>
@@ -609,7 +609,7 @@ div {-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:
     
 </div>
 <div id="blue">
-    <div id="bluename" class="name"><input type="text" value="B"/></div>
+    <div id="bluename" class="name"><input type="text" value="Blue" title="Fightername"/></div>
     <div class="points">
         <div id="blue_ippon" class="point" title="Ippon">&nbsp;</div>
         <div id="blue_wazari" class="point" title="Wazari">0</div>
@@ -617,8 +617,8 @@ div {-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:
     </div>
 </div>
 <div id="time">
-    <div id="group"><input type="text" value="&nbsp;"/></div>
-    <div id="round"><input type="text" value="&nbsp;"/></div>
+    <div id="group"><input type="text" value="&nbsp;" title="Groupname"/></div>
+    <div id="round"><input type="text" value="&nbsp;" title="Roundname"/></div>
     <div id="fighttime" title="Fight Time">0:00</div>
     <div id="osaetime" title="Oseakomi Time">00</div>
     <div id="goldenscore">G<br>S</div>
@@ -626,15 +626,7 @@ div {-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:
 <div id="menubtn">&#9881;</div>
 <div id="menu">
     <div id="menubtnclose">X</div>
-    <h1>Config menu</h1>
-    <table class="menutable">
-        <tr><td><label for="menu_mat">Mat number: </label></td><td><input type="text" id="menu_mat" value=""/></td><td>
-        <tr><td><label for="menu_fighttime">Fight time (seconds): </label></td><td><input type="text" id="menu_fighttime" value=""/></td><td>
-        <tr><td><label for="menu_osaetime">Osaekomi time (seconds): </label></td><td><input type="text" id="menu_osaetime" value=""/></td><td>
-        <tr><td><label for="menu_goldenScoretime">GoldenScore time (seconds, 0=endless): </label></td><td><input type="text" id="menu_goldenScoretime" value=""/></td><td>
-        <tr><td><label for="menu_bellnum">Bell sound (0-4): </label></td><td><input type="text" id="menu_bellnum" value=""/></td><td>
-        <tr><td></td><td><input type="button" id="menusavebtn" value="Save" onclick="toggleMenu();"></td><td>
-    </table>
+
     <h1>Key Bindings</h1>
     <table class="menutable">
         <tr><th>Key</th><th>Function</th><th>Mouse</th></tr>
@@ -649,13 +641,22 @@ div {-moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:
         <tr><td class="center">B</td><td>Bell</td><td></td></tr>
         <tr><td class="center">R</td><td>Reset all</td><td></td></tr>
         <tr><td class="center"></td><td>Time Reset</td><td class="center">Double-click on time</td></tr>
+        <tr><td class="center"></td><td>Set names / group name</td><td class="center">Click on name, and change text</td></tr>
         <tr><td class="center">C</td><td>Config menu</td><td class="center">&#9881; left-click</td></tr>
+    </table>
+    <h1>Config menu</h1>
+    <table class="menutable">
+        <tr><td><label for="menu_mat">Mat number: </label></td><td><input type="text" id="menu_mat" value=""/></td></tr>
+        <tr><td><label for="menu_fighttime">Fight time (seconds): </label></td><td><input type="text" id="menu_fighttime" value=""/></td></tr>
+        <tr><td><label for="menu_osaetime">Osaekomi time (seconds): </label></td><td><input type="text" id="menu_osaetime" value=""/></td></tr>
+        <tr><td><label for="menu_goldenScoretime">GoldenScore time (seconds, 0=endless): </label></td><td><input type="text" id="menu_goldenScoretime" value=""/></td></tr>
+        <tr><td><label for="menu_bellnum">Bell sound (0-4): </label></td><td><input type="text" id="menu_bellnum" value=""/></td></tr>
+        <tr><td></td><td><input type="button" id="menusavebtn" value="Save" onclick="toggleMenu();"></td></tr>
     </table>
     <h1>Manual time override</h1>
     <table class="menutable">
-        <tr><td><label for="menu_fighttimecorrect">Set current fight time (seconds): </label></td><td><input type="text" id="menu_fighttimecorrect" value=""/></td><td>
-        <tr><td><label for="menu_osaetimecorrect">Set current osaekomi time (seconds): </label></td><td><input type="text" id="menu_osaetimecorrect" value=""/></td><td>
-        <tr><td></td><td><input type="button" id="menusavebtn" value="Set" onclick="correctTimes();toggleMenu();"></td><td>
+        <tr><td><label for="menu_fighttimecorrect">Set current fight time (seconds): </label></td><td><input type="text" id="menu_fighttimecorrect" value=""/><input type="button" id="menusavebtn" value="Set" onclick="correctTimes();toggleMenu();"></td></tr>
+        <tr><td><label for="menu_osaetimecorrect">Set current osaekomi time (seconds): </label></td><td><input type="text" id="menu_osaetimecorrect" value=""/><input type="button" id="menusavebtn" value="Set" onclick="correctTimes();toggleMenu();"></td></tr>
     </table>
 </div>
 

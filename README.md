@@ -1,7 +1,7 @@
 # Judo score board
 
 A full Judo scoreboard software in a *single HTML file*.
-Usable without webserver, just open it locally in your browser. The ressource folder is for convenience only.
+Usable without webserver, just open score.html locally in your webbrowser. The ressource folder is for convenience only.
 
 ![screenshot](screenshot.jpg?raw=true "Example view")
 
